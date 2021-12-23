@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+}
+
+header {
+    background: gray;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.left {
+    margin-left: 20%;
+}
+
+.right {
+    margin-right: 20%;
+}
+
+#opponents {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: gray;
+    border-bottom: .25em solid gray;
+    height: 3em;
+}
