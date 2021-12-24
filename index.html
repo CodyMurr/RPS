@@ -4,23 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>RPS</title>
     <link href="css/main.css" rel="stylesheet" type="text/css">
     <script src="js/main.js" defer></script>
 </head>
-<body>
+<body class="flex column">
     <header>
         <h1>Rock, Paper, Scissors</h1>
     </header>
     <main>
-        <div id="opponents">
-            <section id="user" class="top left">
+        <div id="opponents" class="flex row">
+            <section class="flex column">
                 <h2>User</h2>
+                <p class="green">W:</p> 
+                <p class="red">L:</p>
             </section>
-            <section id="computer" class="top right">
+            <section id="round-mrkr" class="flex column">
+                <h2>Round:</h2>
+            </section>
+            <section class="flex column">
                 <h2>Computer</h2>
+                <p class="green">W:</p> 
+                <p class="red">L:</p>
             </section>
         </div>
+        <div id="choices" class="flex row bottom">
+            <div id="choice0" class="item">Rock</div>
+            <div id="choice1" class="item">Paper</div>
+            <div id="choice2" class="item">Scissors</div>
+        </div>
+        
     </main>
 </body>
 </html>
