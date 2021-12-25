@@ -15,7 +15,7 @@ choiceEls.forEach(choice => {
     choice.addEventListener("click", function(e) {
         const trgtIdx = choiceEls.indexOf(e.target);
         user.choice = choices[trgtIdx];
-        let randIdx = Math.floor(Math.random() * choiceEls.length - 1);
+        let randIdx = Math.floor(Math.random() * choiceEls.length);
         computer.choice = choices[randIdx];
         render();
     });
@@ -25,12 +25,16 @@ choiceEls.forEach(choice => {
 
 function render() {
     if (user.choice === computer.choice) {
-        message.innerHTML = "Tie Game!";
-    } else if (((user.choice === 'rock') && (computer.choice === 'paper')) || ((user.choice === 'paper') && (computer.choice === 'scissors')) || ((user.choice === 'scissors') && (computer.choice === 'rock'))) {
-        winner = computer;
-        message.innerHTML = `${computer.choice.toUpperCase()} Beats ${user.choice.toUpperCase()}! COMPUTER Wins!`;
-    } else if (((user.choice === 'scissors') && (computer.choice === 'paper')) || ((user.choice === 'rock') && (computer.choice === 'scissors')) || ((user.choice === 'paper') && (computer.choice === 'rock'))) {
-        winner = user;
-        message.innerHTML = `${user.choice.toUpperCase()} Beats ${computer.choice.toUpperCase()}! USER Wins!`;
+            message.innerHTML = "Tie Game!";
+    } else if (((user.choice === 'rock') && (computer.choice === 'paper')) || 
+        ((user.choice === 'paper') && (computer.choice === 'scissors')) || 
+        ((user.choice === 'scissors') && (computer.choice === 'rock'))) {
+            winner = computer;
+            message.innerHTML = `${computer.choice.toUpperCase()} Beats ${user.choice.toUpperCase()}! COMPUTER Wins!`;
+    } else if (((user.choice === 'scissors') && (computer.choice === 'paper')) || 
+        ((user.choice === 'rock') && (computer.choice === 'scissors')) || 
+        ((user.choice === 'paper') && (computer.choice === 'rock'))) {
+            winner = user;
+            message.innerHTML = `${user.choice.toUpperCase()} Beats ${computer.choice.toUpperCase()}! USER Wins!`;
     } 
 };
