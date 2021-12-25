@@ -12,19 +12,16 @@ const choiceEls = [...document.querySelectorAll('#choices > button')];
 const message = document.getElementById('result');
 
 choiceEls.forEach(choice => {
-    
-    choice.addEventListener("click", init);
+    choice.addEventListener("click", function(e) {
+        const trgtIdx = choiceEls.indexOf(e.target);
+        user.choice = choices[trgtIdx];
+        let randIdx = Math.floor(Math.random() * choiceEls.length - 1);
+        computer.choice = choices[randIdx];
+        render();
+    });
 });
 
-function init(e) {
-    const trgtIdx = choiceEls.indexOf(e.target);
-    user.choice = choices[trgtIdx];
-    
-    let randIdx = Math.floor(Math.random() * choiceEls.length - 1);
-    computer.choice = choices[randIdx];
-    
-    render();
-};
+
 
 function render() {
     if (user.choice === computer.choice) {
