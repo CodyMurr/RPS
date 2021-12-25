@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: 'Secular One', sans-serif;
 }
 
 body {
@@ -13,8 +14,13 @@ h1 {
 }
 
 h3 {
+    width: 9em;
+    height: 1.75em;
+    text-align: center;
     font-size: 2em;
     letter-spacing: .061em;
+    border: .25em solid #fff;
+    border-radius: 2em;
 }
 
 div {
@@ -22,11 +28,14 @@ div {
     height: 50%;
 }
 
-button {
-    margin: 2em;
-    width: 25%;
-    height: 20%;
+img {
+    margin: 0 2em;
+    width: 6.5em;
+    height: 50%;
     font-size: 1.35em;
+    border: .25em solid gray; 
+    border-radius: 2em;
+    cursor: pointer;
 }
 
 .flex {
@@ -43,9 +52,38 @@ button {
     justify-content: space-between;
 }
 
+#versus {
+    color: rgb(97, 97, 97);
+}
+
+#choices {
+    width: 100%;
+    justify-content: center;
+    position: absolute;
+    bottom: -10em;
+}
+
 #result {
     color: #000;
-    font-size: 1.5em;
+    font-size: 1.75em;
     position: relative;
-    bottom: 50%;
+    bottom: 30%;
+    margin-top: 1.5em;
+}
+
+#reset {
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 30%; 
+    
+}
+
+#reset-btn {
+    width: 15em;
+    height: 2.75em;
+    border-radius: 2em;
+    font-size: 2em;
+    position: relative;
+    top: -4.5em;
 }

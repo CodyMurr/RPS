@@ -1,14 +1,32 @@
 const user = {
+    name: "User",
     choice: 'null'
 };
 const computer = {
+    name: "Computer",
     choice: 'null'
 };
+const images = {
+    rock: {
+        src: '../assets/rps-rock.png',
+        alt: 'rock'
+    },
+    paper: {
+        src: '../assets/rps-paper.png',
+        alt: 'paper'
+    },
+    scissors: {
+        src: '../assets/rps-scissors.png',
+        alt: 'scissors'
+    }
+};
 
-let winner = null;
-let choices = ['rock', 'paper', 'scissors']
+let winner;
+let loser;
+let choices = [images.rock, images.paper, images.scissors]
 
-const choiceEls = [...document.querySelectorAll('#choices > button')];
+const choiceEls = [...document.querySelectorAll('#choices > img')];
+const reset = document.querySelector('#reset-btn');
 const message = document.getElementById('result');
 
 choiceEls.forEach(choice => {
@@ -17,24 +35,42 @@ choiceEls.forEach(choice => {
         user.choice = choices[trgtIdx];
         let randIdx = Math.floor(Math.random() * choiceEls.length);
         computer.choice = choices[randIdx];
-        render();
+        if (winner) return;
+        render();     
     });
 });
 
-
+reset.addEventListener("click", function() {
+    reset.hidden = true;
+    winner = null;
+    message.innerHTML = "";
+    document.querySelector('#user').style.borderColor = 'white';
+    document.querySelector('#computer').style.borderColor = 'white';
+});
 
 function render() {
     if (user.choice === computer.choice) {
             message.innerHTML = "Tie Game!";
-    } else if (((user.choice === 'rock') && (computer.choice === 'paper')) || 
-        ((user.choice === 'paper') && (computer.choice === 'scissors')) || 
-        ((user.choice === 'scissors') && (computer.choice === 'rock'))) {
+    } else if (((user.choice === choices[0]) && (computer.choice === choices[1])) || 
+        ((user.choice === choices[1]) && (computer.choice === choices[2])) || 
+        ((user.choice === choices[2]) && (computer.choice === choices[0]))) {
             winner = computer;
-            message.innerHTML = `${computer.choice.toUpperCase()} Beats ${user.choice.toUpperCase()}! COMPUTER Wins!`;
-    } else if (((user.choice === 'scissors') && (computer.choice === 'paper')) || 
-        ((user.choice === 'rock') && (computer.choice === 'scissors')) || 
-        ((user.choice === 'paper') && (computer.choice === 'rock'))) {
+            loser = user;
+    } else if (((user.choice === choices[2]) && (computer.choice === choices[1])) || 
+        ((user.choice === choices[0]) && (computer.choice === choices[2])) || 
+        ((user.choice === choices[1]) && (computer.choice === choices[0]))) {
             winner = user;
-            message.innerHTML = `${user.choice.toUpperCase()} Beats ${computer.choice.toUpperCase()}! USER Wins!`;
+            loser = computer;
     } 
-};
+    renderMessage();
+};  
+
+function renderMessage() {
+    if (winner) {
+        message.innerHTML = `${winner.choice.alt.toUpperCase()} Beats ${loser.choice.alt.toUpperCase()}! ${winner.name} Wins!`;
+        document.querySelector(`#${winner.name.toLowerCase()}`).style.borderColor = 'gray';
+        reset.hidden = false;
+    };
+}    
+
+
