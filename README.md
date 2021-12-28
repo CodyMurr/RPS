@@ -5,13 +5,13 @@
 A simplified "user vs. computer" version of the classic game of chances. 
 ---
 ---
-![Start Screen](assets/screenshots/rps-screenshot(4).png)
+![Start Screen](./assets/screenshots/rps-screenshot(4).png)
 
-![Tie](assets/screenshots/rps-screenshot(3).png)
+![Tie](./assets/screenshots/rps-screenshot(3).png)
 
-![Computer Win](assets/screenshots/rps-screenshot(2).png)
+![Computer Win](./assets/screenshots/rps-screenshot(2).png)
 
-![User Win](assets/screenshots/rps-screenshot(1).png)
+![User Win](./assets/screenshots/rps-screenshot(1).png)
 
 ---
 
