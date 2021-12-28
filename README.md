@@ -5,6 +5,8 @@
 A simplified "user vs. computer" version of the classic game of chances. 
 ---
 ---
+## Screenshots
+
 ![Start Screen](./assets/screenshots/rps-screenshot(4).png)
 
 ![Tie](./assets/screenshots/rps-screenshot(3).png)
